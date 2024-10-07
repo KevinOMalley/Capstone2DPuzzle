@@ -4351,7 +4351,7 @@ GameObject:
   - component: {fileID: 603214970}
   - component: {fileID: 603214972}
   - component: {fileID: 603214971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
