@@ -860,6 +860,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1934031259809315637, guid: d70a356629977894985fef17fb8f590d, type: 3}
   m_PrefabInstance: {fileID: 804954932}
   m_PrefabAsset: {fileID: 0}
+HealthBar
 --- !u!1 &854949245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +1004,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961353936}
   m_CullTransparentMesh: 1
+main
 --- !u!1 &996083603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1180,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1934031259809315637, guid: d70a356629977894985fef17fb8f590d, type: 3}
   m_PrefabInstance: {fileID: 1038190963}
   m_PrefabAsset: {fileID: 0}
+HealthBar
 --- !u!1 &1155441923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1234,7 @@ MonoBehaviour:
   playerHealth: {fileID: 1957186242}
   totalHealthBar: {fileID: 46062208}
   currentHealthBar: {fileID: 961353938}
+main
 --- !u!1001 &1234995026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1640,6 +1644,7 @@ MonoBehaviour:
   - {fileID: 2002001862}
   - {fileID: 236420795}
   - {fileID: 325484978}
+HealthBar
 --- !u!114 &1957186242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1653,6 +1658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+main
 --- !u!1 &1976860104
 GameObject:
   m_ObjectHideFlags: 0
