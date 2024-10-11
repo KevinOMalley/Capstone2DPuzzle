@@ -54,6 +54,7 @@ I had to redesign the player character a few times. The first editions are just 
 	- Basic Character movement
 	- Bug fix to stop the player sprite from falling over
 	- Ability to switch level scenes
+        - Started construction on the first level in Unity 
 
 
 6) Plans for the next increment: If this report if for the first or second increment, describe what are you planning to achieve in the next increment
