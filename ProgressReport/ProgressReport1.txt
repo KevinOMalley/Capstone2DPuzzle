@@ -1,10 +1,10 @@
 1) Team Members: Please write the name of all the team members, their FSU IDs, and GitHub IDs here.
 
 > Kevin O'Malley - KWO21
-> Aiden Lassiter - 
+> Aiden Lassiter - AML22E
 > Benjamin Reich - 
 > Nathaniel Longberry - NJL20a
-> Reece Boulware - 
+> Reece Boulware - RB20G
 
 
 2) Project Title and Description: Briefly describe your project
