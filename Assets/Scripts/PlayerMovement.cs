@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] public float jetpackFuel;
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+    
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
         // flip player when moving left-right
         if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3(1, 1, 1);
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
 
@@ -54,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             wallJumpCooldown += Time.deltaTime;
+
     }
 
     private void Jump()
@@ -74,6 +77,10 @@ public class PlayerMovement : MonoBehaviour
                 body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6);
 
             wallJumpCooldown = 0;
+        }
+        else if (!isGrounded() && jetpackFuel > 0) // jetpack logic 
+        {
+            body.velocity = new Vector2(body.velocity.x, jumpPower / 2);
         }
     }
 
