@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] public float jetpackFuel;
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+    
 
     private void Awake()
     {
@@ -54,6 +56,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             wallJumpCooldown += Time.deltaTime;
+
+        // jetpack logic
+        if (jetpackFuel > 0 && isGrounded() == false && Input.GetKey(KeyCode.Space))
+        {
+            Hover();
+        }
+
+    }
+
+    private void Hover()
+    {
+        if(Input.GetButtonDown("Jump") && jetpackFuel > 0)
+        {
+
+        }
     }
 
     private void Jump()
