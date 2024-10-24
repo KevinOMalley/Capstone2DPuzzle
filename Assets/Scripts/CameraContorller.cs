@@ -12,7 +12,7 @@ public class CameraContorller : MonoBehaviour
 
     private void Update()
     {
-        transform.position = new Vector3(player.position.x, player.position.y + 2, transform.position.z);
+        transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
     }
     
     /*public void MoveToNewRoom(Transform _newRoom)
