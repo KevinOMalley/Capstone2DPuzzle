@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    private bool transformed = false;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
@@ -37,6 +38,12 @@ public class PlayerMovement : MonoBehaviour
         // set animator params
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", isGrounded());
+
+        if(isGrounded())
+        {
+            transformed = false;
+        }
+
 
         // wall jump logic
         if (wallJumpCooldown > 0.2f)
@@ -81,6 +88,15 @@ public class PlayerMovement : MonoBehaviour
         else if (!isGrounded() && jetpackFuel > 0) // jetpack logic 
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower / 2);
+            if(transformed == false)
+            {
+                anim.SetTrigger("transform");
+                transformed = true;
+            }
+            else
+            {
+                anim.SetTrigger("rocket");
+            }
         }
     }
 
