@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,6 +10,8 @@ public class MovingPlatform : MonoBehaviour
     public int startingPoint;       // starting position of the platform
     public Transform[] points;       // an array of transform points (positions where the platform needs to move)
     private Vector3 playerOriginalScale;
+    private int contactCount = 0;
+    private Transform playerTransform;
 
     private int i;  //index of array
 
@@ -37,16 +40,17 @@ public class MovingPlatform : MonoBehaviour
     // moving player with platform
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.position.y > transform.position.y)
-        {
-            playerOriginalScale = collision.transform.localScale;
-            collision.transform.SetParent(transform);
-        }
+        collision.transform.SetParent(transform);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        collision.transform.SetParent(transform);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         collision.transform.SetParent(null);
-        collision.transform.localScale = playerOriginalScale;
     }
+    
 }
