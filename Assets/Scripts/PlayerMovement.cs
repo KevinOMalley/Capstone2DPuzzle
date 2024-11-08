@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float JumpCooldown;
     private float horizontalInput;
+    private bool canWallJump = false;
     
 
     private void Awake()
@@ -45,11 +46,12 @@ public class PlayerMovement : MonoBehaviour
         if(isGrounded())
         {
             transformed = false;
+            canWallJump = true;
         }
 
         if (Input.GetKey(KeyCode.Space) && isGrounded())
             Jump();
-        else if (Input.GetKey(KeyCode.Space) && !isGrounded() && JumpCooldown > 0.2f && jetpackFuel > 0)
+        else if (Input.GetKey(KeyCode.Space) && !isGrounded() && JumpCooldown > 0.2f && jetpackFuel > 0 && !onWall())
         {
             body.velocity = new Vector2(0, jumpPower / 2);
             if(transformed == false)
@@ -75,6 +77,12 @@ public class PlayerMovement : MonoBehaviour
             anim.SetTrigger("jump");
         }
         JumpCooldown = 0;
+        if (!isGrounded() && canWallJump)
+        {
+            body.velocity = new Vector2(body.velocity.x, jumpPower);
+            anim.SetTrigger("jump");
+            canWallJump = false;
+        }
     }
 
     private bool isGrounded()
