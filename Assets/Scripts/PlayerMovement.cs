@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] public float jetpackFuel;
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] public float jetpackUses;
     private bool transformed = false;
+
+    private bool canJetpack = true;
+    private bool isJetpackOn;
+    private float jetpackPower = 10f;
+    private float jetpackTime = 1f;
+    private float jetpackCooldown = 1f;
+
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-    private float JumpCooldown;
     private float horizontalInput;
     private bool canWallJump = false;
     
@@ -27,7 +35,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
+        if (isJetpackOn)
+        {
+            return;
+        }
+
         horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput != 0) gameObject.transform.SetParent(null);
 
@@ -51,21 +64,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && isGrounded())
             Jump();
-        else if (Input.GetKey(KeyCode.Space) && !isGrounded() && JumpCooldown > 0.2f && jetpackFuel > 0 && !onWall())
+
+        if (Input.GetKey(KeyCode.Q) && canJetpack && jetpackUses > 0)
         {
-            body.velocity = new Vector2(0, jumpPower / 2);
-            if(transformed == false)
-            {
-                anim.SetTrigger("transform");
-                transformed = true;
-            }
-            else
-            {
-                anim.SetTrigger("rocket");
-            }
+            StartCoroutine(Jetpack());
         }
-        else
-            JumpCooldown += Time.deltaTime;
         
     }
 
@@ -76,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             anim.SetTrigger("jump");
         }
-        JumpCooldown = 0;
         if (!isGrounded() && canWallJump)
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
@@ -100,5 +102,22 @@ public class PlayerMovement : MonoBehaviour
     public bool canAttack()
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
+    }
+
+    private IEnumerator Jetpack()
+    {
+        anim.SetTrigger("transform");
+        anim.SetTrigger("rocket");
+        canJetpack = false;
+        isJetpackOn = true;
+        float originalGravity = body.gravityScale;
+        body.gravityScale = 0f;
+        body.velocity = new Vector2(0f, transform.localScale.y * jetpackPower);
+        yield return new WaitForSeconds(jetpackTime);
+        body.gravityScale = originalGravity;
+        isJetpackOn = false;
+        jetpackUses -= 1;
+        yield return new WaitForSeconds(jetpackCooldown);
+        canJetpack = true;
     }
 }
