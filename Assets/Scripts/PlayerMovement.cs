@@ -120,4 +120,9 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(jetpackCooldown);
         canJetpack = true;
     }
+
+    public void AddJetpackUses(float _value)
+    {
+        jetpackUses += _value;
+    }
 }
