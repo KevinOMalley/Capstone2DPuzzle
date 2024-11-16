@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
@@ -30,6 +31,10 @@ public class Health : MonoBehaviour
         {
             // player dead
             anim.SetTrigger("die");
+
+            //Needs to pause for 0.45 seconds here. It's the duration of the death animation.
+            //I'll probably have to make it longer and lock the player or something
+
             SceneManager.LoadScene(respawn);
         }
     }
