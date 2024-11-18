@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,11 +10,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] public float jetpackUses;
+    private bool transformed = false;
+
+    private bool canJetpack = true;
+    private bool isJetpackOn;
+    private float jetpackPower = 10f;
+    private float jetpackTime = 1f;
+    private float jetpackCooldown = 1f;
+
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-    private float wallJumpCooldown;
     private float horizontalInput;
+    private bool canWallJump = false;
+    
 
     private void Awake()
     {
@@ -24,11 +36,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (isJetpackOn)
+        {
+            return;
+        }
+
         horizontalInput = Input.GetAxis("Horizontal");
+        if (horizontalInput != 0) gameObject.transform.SetParent(null);
+
+        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
         // flip player when moving left-right
         if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3(1, 1, 1);
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
 
@@ -36,24 +56,20 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", isGrounded());
 
-        // wall jump logic
-        if (wallJumpCooldown > 0.2f)
+        if(isGrounded())
         {
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
-
-            if (onWall() && !isGrounded())
-            {
-                body.gravityScale = 0;
-                body.velocity = Vector2.zero;
-            }
-            else
-                body.gravityScale = 7;
-
-            if (Input.GetKey(KeyCode.Space))
-                Jump();
+            transformed = false;
+            canWallJump = true;
         }
-        else
-            wallJumpCooldown += Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.Space) && isGrounded())
+            Jump();
+
+        if (Input.GetKey(KeyCode.Q) && canJetpack && jetpackUses > 0)
+        {
+            StartCoroutine(Jetpack());
+        }
+        
     }
 
     private void Jump()
@@ -63,17 +79,11 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             anim.SetTrigger("jump");
         }
-        else if (onWall() && !isGrounded())
+        if (!isGrounded() && canWallJump)
         {
-            if (horizontalInput == 0)
-            {
-                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
-                transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-            else
-                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6);
-
-            wallJumpCooldown = 0;
+            body.velocity = new Vector2(body.velocity.x, jumpPower);
+            anim.SetTrigger("jump");
+            canWallJump = false;
         }
     }
 
@@ -92,5 +102,27 @@ public class PlayerMovement : MonoBehaviour
     public bool canAttack()
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
+    }
+
+    private IEnumerator Jetpack()
+    {
+        anim.SetTrigger("transform");
+        anim.SetTrigger("rocket");
+        canJetpack = false;
+        isJetpackOn = true;
+        float originalGravity = body.gravityScale;
+        body.gravityScale = 0f;
+        body.velocity = new Vector2(0f, transform.localScale.y * jetpackPower);
+        yield return new WaitForSeconds(jetpackTime);
+        body.gravityScale = originalGravity;
+        isJetpackOn = false;
+        jetpackUses -= 1;
+        yield return new WaitForSeconds(jetpackCooldown);
+        canJetpack = true;
+    }
+
+    public void AddJetpackUses(float _value)
+    {
+        jetpackUses += _value;
     }
 }
