@@ -1,0 +1,32 @@
+Dear, Dear Stakeholders, it pleases me to say we have made a solid amount of progress on the project. Here is a summary of our progress:
+
+Current Progress:
+> We have a working 2D platform with a working 2D avatar, with movement controls and wall jumping ability.
+> Our 2D sprite character has been flushed out more (I added words to his T-Shirt) and has been improved so that it is easier to animate.
+> We have begun testing with sound design for our own background music
+> We've gotten some of our level design planned 
+
+Short-term goals:
+> design a hover mechanic
+> get our sprite 2D character working instead of the one off of the unity asset store
+> create new animations for our 2D sprite character
+> get some sort of background music or sound in the project
+
+Long-term goals:
+> design a battery
+> design a game mechanic that uses a charge of said battery
+> design a coin mechanic
+> design a game mechanic that uses coins
+
+Shortcomings:
+> We need more unique art and code
+> A lot of our code isn't original right now
+	>> We're working on getting a lot of basic mechanics and art finished and working. When all of that is finished, we'll be able to expand and get a lot of work done to fix that issue
+> Haven't really been creating and completing issues on GitHub
+	>> We'll be more cognizant of this issue in the future
+
+We have been meeting twice a week and plan to continue to do so. We faced some setback from the hurricane, but we're chugging along fairly well. The rest of the project over the course of the semester should go smoothly.
+
+Best,
+Group 6
+
