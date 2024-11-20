@@ -32,12 +32,12 @@ I don't feel like there were many challenges. We've gotten a lot done.
 
 > Kevin O'Malley 
 	- Wrote the progress report and the stakeholder email.
-  - added issues to the GitHub
+  	- added issues to the GitHub
 	- Made the sprites, and animations for everything (A bunch of new sprites and animations were added)
 	- Made the Maze
 > Aiden Lassiter  
 	- Wrote the RD document
-  - added issues to the GitHub
+  	- added issues to the GitHub
 	- Made the jetpack functionality
 	- Added health and battery UI
 	- Made a battery collectible that can be picked up to refill a jetpack charge.
@@ -48,11 +48,11 @@ I don't feel like there were many challenges. We've gotten a lot done.
 	- 
 > Reece Boulware 
 	- Wrote the IT document
-  - added issues to the GitHub
+  	- added issues to the GitHub
 	- Fixed the wall jump to 1 jump
 	- Bug fix to stop the player sprite from falling over
 	- Ability to switch level scenes
-  - Made the tutorial 1st level
+  	- Made the tutorial 1st level
 
 
 6) Plans for the next increment: If this report if for the first or second increment, describe what are you planning to achieve in the next increment
