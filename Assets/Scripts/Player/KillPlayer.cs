@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
-    public int respawn;
+    private Health playerHealth;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.tag == "Player")
         {
-            SceneManager.LoadScene(respawn);
+            collision.GetComponent<Health>().TakeDamage(3);
         }
     }
 }

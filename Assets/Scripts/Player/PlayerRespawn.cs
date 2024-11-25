@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform currentCheckpoint;
+    private Health playerHealth;
+
+    private void Awake()
     {
-        
+        playerHealth = GetComponent<Health>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RespawnPlayer()
     {
-        
+        transform.position = currentCheckpoint.position;
+        playerHealth.Respawn();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Checkpoint")
+        {
+            currentCheckpoint = collision.transform;
+            collision.GetComponent<Collider2D>().enabled = false;
+        }
     }
 }
