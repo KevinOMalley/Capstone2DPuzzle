@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Spike
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   - UI
   - Ground
   - Wall
+  - Background
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -40,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background real
+    uniqueID: 2463705437
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

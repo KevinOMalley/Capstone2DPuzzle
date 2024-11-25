@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
-    [SerializeField] public float jetpackUses;
     private bool transformed = false;
 
     private bool canJetpack = true;
@@ -19,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float jetpackTime = 1f;
     private float jetpackCooldown = 1f;
 
+    private Battery batt;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        batt = GetComponent<Battery>();
     }
 
     private void Update()
@@ -65,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && isGrounded())
             Jump();
 
-        if (Input.GetKey(KeyCode.Q) && canJetpack && jetpackUses > 0)
+        if (Input.GetKey(KeyCode.Q) && canJetpack && batt.currentCharges > 0)
         {
             StartCoroutine(Jetpack());
         }
@@ -106,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Jetpack()
     {
+        batt.TakeCharge(1);
         anim.SetTrigger("transform");
         anim.SetTrigger("rocket");
         canJetpack = false;
@@ -116,13 +118,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(jetpackTime);
         body.gravityScale = originalGravity;
         isJetpackOn = false;
-        jetpackUses -= 1;
         yield return new WaitForSeconds(jetpackCooldown);
         canJetpack = true;
-    }
-
-    public void AddJetpackUses(float _value)
-    {
-        jetpackUses += _value;
     }
 }

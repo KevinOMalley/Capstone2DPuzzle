@@ -1,0 +1,72 @@
+1) Team Members: Please write the name of all the team members, their FSU IDs, and GitHub IDs here.
+
+> Kevin O'Malley - KWO21
+> Aiden Lassiter - AML22E
+> Benjamin Reich - 
+> Nathaniel Longberry - NJL20a
+> Reece Boulware - RB20G
+
+
+2) Project Title and Description: Briefly describe your project
+
+We are making a time travel-themed 2D puzzle-platformer game in C# using Unity.
+
+
+3) Accomplishments and overall project status during this increment: Describe in detail what was accomplished during this increment and where your project stands overall compared to the initial scope and functionality proposed
+
+The Player Character has a bunch of new animations
+A maze has been made
+A tutorial level has been made
+A health UI has been added.
+The PC can use a jetpack mechanic with collectible batteries to refill charges
+A respawn mechanic has been added
+rotating buzzsaws that hurt the player have been added
+There are platforms that appear and disappear
+
+
+4) Challenges, changes in the plan and scope of the project and things that went wrong during this increment
+
+I don't feel like there were many challenges. We've gotten a lot done.
+
+5) Team Member Contribution for this increment
+
+> Kevin O'Malley 
+	- Wrote the progress report and the stakeholder email.
+  	- added issues to the GitHub
+	- Made the sprites, and animations for everything (A bunch of new sprites and animations were added)
+	- Made the Maze
+> Aiden Lassiter  
+	- Wrote the RD document
+  	- added issues to the GitHub
+	- Made the jetpack functionality
+	- Added health and battery UI
+	- Made a battery collectible that can be picked up to refill a jetpack charge.
+> Benjamin Reich  
+	- Made the video
+	- 
+> Nathaniel Longberry 
+	- 
+> Reece Boulware 
+	- Wrote the IT document
+  	- added issues to the GitHub
+	- Fixed the wall jump to 1 jump
+	- Bug fix to stop the player sprite from falling over
+	- Ability to switch level scenes
+  	- Made the tutorial 1st level
+
+
+6) Plans for the next increment: If this report if for the first or second increment, describe what are you planning to achieve in the next increment
+
+We don't have any tilesets or background art, so we'll need to finish that before the end of the semester. 
+We haven't implemented a time-manipulating mechanic yet, so that's a goal. 
+We need to add some background music.
+We also need to design a few more levels
+
+
+7) Stakeholder Communication
+
+In a separate document.
+
+8) Link to video
+
+Link: https://www.youtube.com/watch?v=sxigXbGOhdU

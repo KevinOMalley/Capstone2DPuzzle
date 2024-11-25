@@ -11,7 +11,7 @@ public class JetpackCollectible : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            collision.GetComponent<PlayerMovement>().AddJetpackUses(usesValue);
+            collision.GetComponent<Battery>().AddCharge(usesValue);
             gameObject.SetActive(false);
         }
     }
