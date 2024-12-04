@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3902047766231146268}
   - component: {fileID: 859729023970703896}
   - component: {fileID: 334948337402085003}
+  - component: {fileID: 7235904481577934012}
   m_Layer: 0
   m_Name: CheckPoint
   m_TagString: Checkpoint
@@ -130,3 +131,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71009636, y: 1.0855095}
   m_EdgeRadius: 0
+--- !u!95 &7235904481577934012
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126190072257874178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 41602c6792bfe0f45891f3f3cde81cd3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
