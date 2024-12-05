@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class InfinitePlatformSpawner : MonoBehaviour
 {
     public float speed;             // platform moving speed
     public int startingPoint;       // starting position of the platform
     public Transform[] points;       // an array of transform points (positions where the platform needs to move)
-    private Vector3 playerOriginalScale;
-    private int contactCount = 0;
-    private Transform playerTransform;
 
-    private int i;  //index of array
+    private int i = 0;  //index of array
 
     private void Start()
     {
@@ -24,15 +21,25 @@ public class MovingPlatform : MonoBehaviour
         // checking the distance of the platform and the point
         if (Vector2.Distance(transform.position, points[i].position) < 0.02f)
         {
-            i++;
-            if (i == points.Length)  // check if platform was on the last point after index increase
+            if (i == points.Length - 1)  // check if platform was on the last point after index increase
             {
-                i = 0;
+                RespawnPlatform();
             }
+            else
+            {
+                i++;
+            }
+           
         }
 
         // moving the platform to the point position with the index "i"
         transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+    }
+
+    private void RespawnPlatform()
+    {
+        i = 0;
+        transform.position = points[startingPoint].position;
     }
 
     // moving player with platform
