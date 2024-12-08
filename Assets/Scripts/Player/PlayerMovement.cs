@@ -18,13 +18,23 @@ public class PlayerMovement : MonoBehaviour
     private float jetpackTime = 1f;
     private float jetpackCooldown = 1f;
 
+    //Dashing
+    private bool canDash = true;
+    private bool isDashing;
+    [SerializeField] private float dashingPower = 24f;
+    [SerializeField] private float dashingTime = 0.2f;
+    [SerializeField] private float dashingCooldown = 1f;
+
     private Battery batt;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
     private float horizontalInput;
     private bool canWallJump = false;
-    
+
+    [SerializeField] private TrailRenderer tr;
+    [SerializeField] private Transform groundCheck;
+
 
     private void Awake()
     {
@@ -37,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         if (isJetpackOn)
         {
             return;
@@ -70,7 +85,12 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Jetpack());
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
     }
 
     private void Jump()
@@ -120,5 +140,21 @@ public class PlayerMovement : MonoBehaviour
         isJetpackOn = false;
         yield return new WaitForSeconds(jetpackCooldown);
         canJetpack = true;
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = body.gravityScale;
+        body.gravityScale = 0f;
+        body.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        body.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 }
