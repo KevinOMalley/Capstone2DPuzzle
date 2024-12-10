@@ -2583,7 +2583,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &377085498
@@ -5105,7 +5105,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &652999367
@@ -5597,7 +5597,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &682947435
@@ -6661,7 +6661,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &761192472
@@ -6855,7 +6855,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &778883928
@@ -7269,7 +7269,7 @@ Transform:
   m_GameObject: {fileID: 817757816}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6701642, y: -4.7525415, z: 0.054359738}
+  m_LocalPosition: {x: -87.96, y: -4.7525415, z: 0.054359738}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10361,7 +10361,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1190353564
@@ -11021,7 +11021,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1300602398
@@ -11429,7 +11429,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1348921882
@@ -13671,7 +13671,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1630157147
@@ -15832,7 +15832,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1890129916
@@ -16105,19 +16105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2ce409fdce07047aeaedb622857185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 0.5
-  firePoint: {fileID: 740168632}
-  fireballs:
-  - {fileID: 1606511889}
-  - {fileID: 1326213121}
-  - {fileID: 646033141}
-  - {fileID: 680529090}
-  - {fileID: 374391216}
-  - {fileID: 1289004562}
-  - {fileID: 1881133085}
-  - {fileID: 758282633}
-  - {fileID: 761192472}
-  - {fileID: 1154422531}
 --- !u!114 &1913866073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16138,6 +16125,11 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
+  dashingPower: 24
+  dashingTime: 0.2
+  dashingCooldown: 1
+  tr: {fileID: 0}
+  groundCheck: {fileID: 0}
 --- !u!50 &1913866074
 Rigidbody2D:
   serializedVersion: 4
@@ -16252,8 +16244,6 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 20daa800a641d9e4cae18a06630db1ef, type: 3}
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24dbdcfaf90a06a46ab9a397aae5309e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16261,7 +16251,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1913866077

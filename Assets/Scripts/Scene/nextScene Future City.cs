@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [SerializeField]
-public class NewBehaviourScript : MonoBehaviour
+public class NextScene : MonoBehaviour
 {
-    private string Level = "Level1_Future";
+    private string Level = "Future City";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Level1_Future.unity
     guid: 715d8f323715813458fb17c42ffc26b2
+  - enabled: 1
+    path: Assets/Levels/Maze.unity
+    guid: 88524f39bde220d4f8ab23603df91554
+  - enabled: 1
+    path: Assets/Levels/Future City.unity
+    guid: 44045cacdf405394f87e8b09f466b56f
   m_configObjects: {}
