@@ -146,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        anim.SetTrigger("dash");
         float originalGravity = body.gravityScale;
         body.gravityScale = 0f;
         body.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
