@@ -1,0 +1,58 @@
+1) Team Members: Please write the names of all the team members, their FSU IDs, and GitHub IDs here.
+
+> Kevin O'Malley - KWO21
+> Aiden Lassiter - AML22E
+> Benjamin Reich - 
+> Nathaniel Longberry - NJL20a
+> Reece Boulware - RB20G
+
+
+2) Project Title and Description: Briefly describe your project
+
+We are making a time travel-themed 2D puzzle-platformer game in C# using Unity.
+
+
+3) Accomplishments and overall project status during this increment: Describe in detail what was accomplished during this increment and where your project stands overall compared to the initial scope and functionality proposed
+
+We've added a lot to the project in order to wrap things up for the semester. We've got the levels all strung together in a sequence, a new dash mechanic, polished level designs, new sprites for the ground and walls, and checkpoints.
+
+
+4) Challenges, changes in the plan and scope of the project, and things that went wrong during this increment
+
+We had finals, so those somewhat got in the way of wrapping up this project. Otherwise, there were really no issues. It seems the sound design was a bit more difficult than expected, so that idea was dropped. We also had a few other ideas in the GitHub that weren't implemented because we lacked interest/ ran out of time.
+
+
+5) Team Member Contribution for this increment
+
+> Kevin O'Malley 
+	- Wrote the progress report and the stakeholder email.
+	- Added Signs, platforms, and buzzsaws to the maze
+	- Made new animations (such as dash and death) for the player character
+	- Made a flag animation for when you reach a checkpoint
+> Aiden Lassiter  
+	- Wrote the RD document
+	- Added a short delay before the death reset
+  - Added Checkpoints
+  - Added a Dash mechanic
+> Benjamin Reich  
+	- Made the video
+	- Kept group members up to date
+  - Poshished some of the design for the levels
+  - Did the pixel art for the ground
+> Reece Boulware 
+	- Wrote the IT document
+	- Worked on creating new levels
+  - Made portals that go from level to level
+> Nathaniel Longberry 
+	- 
+
+6) Plans for the next increment: If this report is for the first or second increment, describe what you are planning to achieve in the next increment
+
+
+7) Stakeholder Communication
+
+In a separate document.
+
+8) Link to video
+
+Link: https://www.youtube.com/watch?v=sxigXbGOhdU
