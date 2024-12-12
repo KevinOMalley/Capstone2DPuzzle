@@ -2,7 +2,7 @@
 
 > Kevin O'Malley - KWO21
 > Aiden Lassiter - AML22E
-> Benjamin Reich - 
+> Benjamin Reich - BR22B
 > Nathaniel Longberry - NJL20a
 > Reece Boulware - RB20G
 
@@ -33,12 +33,13 @@ We had finals, so those somewhat got in the way of wrapping up this project. Oth
 	- Wrote the RD document
 	- Added a short delay before the death reset
   	- Added Checkpoints
-  	- Added a Dash mechanic
+  	- Added a rocket mechanic
 > Benjamin Reich  
 	- Made the video
 	- Kept group members up to date
   	- Poshished some of the design for the levels
-  	- Did the pixel art for the ground
+  	- Did the pixel art for the environment
+	- Added a dash mechanic
 > Reece Boulware 
 	- Wrote the IT document
 	- Worked on creating new levels
