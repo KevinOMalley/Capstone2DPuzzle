@@ -1,0 +1,4 @@
+Dear stakeholders, 
+We have great news. We’ve made a lot of progress since the last progress report in order to finish up the game by the end of the semester. We've got multiple levels strung together in a sequence, a new dash mechanic, polished level designs, new sprites for the ground and walls, and checkpoints. I don’t believe there were many difficulties other than a few scheduling mishaps due to finals. There were a few ideas like background music and enemies that we didn't end up implementing due to a lack of time. Though a few ideas are missing, We've realized quite a lot more. All in all, the game is ready to be brought to market and will benefit the company's stakeholders.
+Best,
+The Time Travel Adventure design team
