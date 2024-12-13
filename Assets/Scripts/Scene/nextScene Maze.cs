@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 [SerializeField]
 public class NewBehaviourScript : MonoBehaviour
 {
-    private string Level = "Level1_Future";
+    private string Level = "Maze";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
